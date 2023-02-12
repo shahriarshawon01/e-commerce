@@ -24,14 +24,14 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(DashboardController::class)->group(function () {
-        Route::get('/admin/dashboard', 'index');
+        Route::get('/admin/dashboard', 'index')->name('admindashboard');
     });
     Route::controller(CategoryController::class)->group(function () {
         Route::get('/admin/all-category', 'index')->name('allcategory');
         Route::get('/admin/add-category', 'addCategory')->name('addcategory');
     });
     Route::controller(SubCategoryController::class)->group(function () {
-        Route::get('/admin/all-subcategory', 'index')->name('allcategory');
+        Route::get('/admin/all-subcategory', 'index')->name('allsubcategory');
         Route::get('/admin/add-subcategory', 'addSubCategory')->name('addsubcategory');
     });
     Route::controller(ProductController::class)->group(function () {
